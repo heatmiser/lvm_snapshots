@@ -1,6 +1,6 @@
 ---
 - name: Create/revert/remove LVM snapshot of node
-  hosts: "{{ HOSTS is defined | ternary(HOSTS, PREFIX|default('')+'*') }}"
+  hosts: "{{ _hosts | default(omit) }}"
   become: yes
   environment:
     LANG: en_US.UTF-8
